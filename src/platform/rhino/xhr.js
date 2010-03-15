@@ -184,15 +184,28 @@ Envjs.connection = function(xhr, responseHandler, data){
         }
         
         //write data to output stream if required
-        if(data&&data.length&&data.length>0){
+        if(data){
+            if(data instanceof Document){
              if ( xhr.method == "PUT" || xhr.method == "POST" ) {
                 connection.setDoOutput(true);
                 var outstream = connection.getOutputStream(),
-                    outbuffer = new java.lang.String(data).getBytes('UTF-8');
+                    xml = (new XMLSerializer()).serializeToString(data),
+                    outbuffer = new java.lang.String(xml).getBytes('UTF-8');
                 
                 outstream.write(outbuffer, 0, outbuffer.length);
                 outstream.close();
-            }
+                }
+            }else if(data.length&&data.length>0){
+                if ( xhr.method == "PUT" || xhr.method == "POST" ) {
+                    connection.setDoOutput(true);
+                    var outstream = connection.getOutputStream(),
+                        outbuffer = new java.lang.String(data).getBytes('UTF-8');
+                    
+                    outstream.write(outbuffer, 0, outbuffer.length);
+                    outstream.close();
+                }
+            }else
+                connection.connect();
         }else{
             connection.connect();
         }

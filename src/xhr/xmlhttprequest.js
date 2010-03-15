@@ -16,12 +16,11 @@ XMLHttpRequest = function(){
     this.aborted = false;//non-standard
 };
 
-// it would be nice if these were part of the standard but
-// they are not.
+// defined by the standard: http://www.w3.org/TR/XMLHttpRequest/#xmlhttprequest
 XMLHttpRequest.UNSENT = 0;
-XMLHttpRequest.OPEN = 0;
-XMLHttpRequest.HEADERS_RECEIVED = 0;
-XMLHttpRequest.LOADING = 0;
+XMLHttpRequest.OPEN = 1;
+XMLHttpRequest.HEADERS_RECEIVED = 2;
+XMLHttpRequest.LOADING = 3;
 XMLHttpRequest.DONE = 4;
 
 XMLHttpRequest.prototype = {
