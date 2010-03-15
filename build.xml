@@ -397,6 +397,7 @@
             <fileset dir="${SRC_DIR}" includes="html/button.js" />
             <fileset dir="${SRC_DIR}" includes="html/canvas.js" />
             <fileset dir="${SRC_DIR}" includes="html/col-colgroup.js" />
+            <fileset dir="${SRC_DIR}" includes="html/cookie.js" />
             <fileset dir="${SRC_DIR}" includes="html/del-ins.js" />
             <fileset dir="${SRC_DIR}" includes="html/div.js" />
             <fileset dir="${SRC_DIR}" includes="html/legend.js" />
